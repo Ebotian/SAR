@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
         formData.append('y', selectedY.toString());
 
         try {
-            const response = await fetch('http://localhost:5000/sar_simulate', {
+            const response = await fetch('/api/sar_simulate', {
                 method: 'POST',
                 body: formData
             });

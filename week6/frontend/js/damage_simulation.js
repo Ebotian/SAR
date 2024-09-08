@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Sending coordinates:', selectedX, selectedY);
 
         try {
-            const response = await fetch('http://localhost:5000/simulate', {
+            const response = await fetch('/api/simulate', {
                 method: 'POST',
                 body: formData
             });
@@ -222,7 +222,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function assessDamage() {
         showMessage('正在进行毁伤评估...', 'info');
 
-        fetch('http://localhost:5000/assess_damage', {
+        fetch('/api/assess_damage', {
             method: 'POST'
         })
         .then(response => {
@@ -238,7 +238,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 damageImage.style.display = 'block';
                 document.getElementById('assessment-result').style.display = 'block';
             };
-            return fetch('http://localhost:5000/get_damage_statistics');
+            return fetch('/api/get_damage_statistics');
         })
         .then(response => response.json())
         .then(data => {
